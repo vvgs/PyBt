@@ -1,0 +1,96 @@
+{
+    "name": "MainBlock",
+    "type": "Main_vblock",
+    "buffers": [
+        {
+            "name": "start",
+            "angle": 0
+        }
+    ],
+    "connections": [
+        {
+            "name": "init_connection",
+            "origin_block": "MainBlock",
+            "origin_buffer": "start",
+            "target_block": "init",
+            "target_buffer": "start"
+        }
+    ],
+    "sub_blocks": [
+        {
+            "name": "run",
+            "type": "Code_vblock",
+            "text": "run",
+            "geometry": [
+                1500,
+                0,
+                100,
+                60
+            ],
+            "visible": true,
+            "code": "parent.owner.init_connection.updata()\nparent.owner.execute()",
+            "buffers": []
+        },
+        {
+            "name": "open_file",
+            "type": "Code_vblock",
+            "text": "open_file",
+            "geometry": [
+                0,
+                0,
+                100,
+                60
+            ],
+            "visible": true,
+            "code": "parent.owner.load('test.txt')",
+            "buffers": []
+        },
+        {
+            "name": "save_file",
+            "type": "Code_vblock",
+            "text": "save_file",
+            "geometry": [
+                100,
+                0,
+                100,
+                60
+            ],
+            "visible": true,
+            "code": "parent.owner.save('pure.txt')",
+            "buffers": []
+        },
+        {
+            "name": "new_block",
+            "type": "Code_vblock",
+            "text": "new_block",
+            "geometry": [
+                230,
+                0,
+                100,
+                60
+            ],
+            "visible": true,
+            "code": "nb = parent.owner.new_block('Code_vblock', 'Unnamed', (230,0,100,60))\nnb.widget.dragging = True\nnb.widget.setMouseTracking(True)\n",
+            "buffers": []
+        },
+        {
+            "name": "init",
+            "type": "Code_vblock",
+            "text": "init",
+            "geometry": [
+                0,
+                470,
+                100,
+                60
+            ],
+            "visible": true,
+            "code": "parent.owner.is_activated = True",
+            "buffers": [
+                {
+                    "name": "start",
+                    "angle": 0
+                }
+            ]
+        }
+    ]
+}
